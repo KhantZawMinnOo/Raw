@@ -1,25 +1,0 @@
-Êþº¾   2 t  )com/kzmo/onetap/lock/MainActivity  android/app/Activity 	deviceMgr 'Landroid/app/admin/DevicePolicyManager; comp Landroid/content/ComponentName; <init> ()V Code
-   	 
- LineNumberTable LocalVariableTable this +Lcom/kzmo/onetap/lock/MainActivity; onCreate (Landroid/os/Bundle;)V
-      
-ScreenLock  MainActivity oncreate.
-    android/util/Log   d '(Ljava/lang/String;Ljava/lang/String;)I ! device_policy
-  # $ % getSystemService &(Ljava/lang/String;)Ljava/lang/Object; ' %android/app/admin/DevicePolicyManager	  )   + android/content/ComponentName - :com/kzmo/onetap/lock/ScreenLockDeviceAdminReceiver
- * / 	 0 -(Landroid/content/Context;Ljava/lang/Class;)V	  2  
- & 4 5 6 isAdminActive "(Landroid/content/ComponentName;)Z 8 Main :admin is false : android/content/Intent < #android.app.action.ADD_DEVICE_ADMIN
- 9 > 	 ? (Ljava/lang/String;)V A android.app.extra.DEVICE_ADMIN
- 9 C D E putExtra C(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent; G !android.app.extra.ADD_EXPLANATION 
-  J K L 	getString (I)Ljava/lang/String;
- 9 N D O >(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-  Q R S startActivityForResult (Landroid/content/Intent;I)V U Main : admin is true
- & W X 
- lockNow
-  Z [ 
- finish savedInstanceState Landroid/os/Bundle; intent Landroid/content/Intent; StackMapTable onActivityResult (IILandroid/content/Intent;)V
-  d a b 
- g i h android/widget/Toast j k makeText 3(Landroid/content/Context;II)Landroid/widget/Toast;
- g m n 
- show requestCode I 
-resultCode 
-SourceFile MainActivity.java !                    	 
-     /     *· ±                                   }*+· ¸ W** ¶ "À &µ (*» *Y*,· .µ 1*´ (*´ 1¶ 3š 67¸ W» 9Y;· =M,@*´ 1¶ BW,F*H¶ I¶ MW*,¶ P§ T¸ W*´ (¶ V*¶ Y±       N           (  6  >  B  D  H  S  V  \  ` ! f " i # q $ x % | '         }       } \ ]  H  ^ _  `    û i  a b     “     %*-· c  *´ (¶ V§ *e¸ f¶ l*¶ Y±       "    ,  -  .  /  0  1   3 $ 4    *    %       % o p    % q p    % ^ _  `    	  r    s

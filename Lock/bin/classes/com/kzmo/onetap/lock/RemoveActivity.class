@@ -1,19 +1,0 @@
-Êþº¾   2 k  +com/kzmo/onetap/lock/RemoveActivity  android/app/Activity <init> ()V Code
-  	   LineNumberTable LocalVariableTable this -Lcom/kzmo/onetap/lock/RemoveActivity; onCreate (Landroid/os/Bundle;)V
-      
-ScreenLock  RemoveActivity oncreate.
-    android/util/Log   d '(Ljava/lang/String;Ljava/lang/String;)I  android/content/ComponentName  :com/kzmo/onetap/lock/ScreenLockDeviceAdminReceiver
-  !  " -(Landroid/content/Context;Ljava/lang/Class;)V $ device_policy
-  & ' ( getSystemService &(Ljava/lang/String;)Ljava/lang/Object; * %android/app/admin/DevicePolicyManager
- ) , - . isAdminActive "(Landroid/content/ComponentName;)Z 
- 1 3 2 android/widget/Toast 4 5 makeText 3(Landroid/content/Context;II)Landroid/widget/Toast;
- 1 7 8  show : Rmove :admin is true
- ) < = > removeActiveAdmin "(Landroid/content/ComponentName;)V @ Remove admin is false B package D com.kzmo.onetap.lock
- F H G android/net/Uri I J 	fromParts I(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri; L android/content/Intent N android.intent.action.DELETE
- K P  Q &(Ljava/lang/String;Landroid/net/Uri;)V   
- K T U V addFlags (I)Landroid/content/Intent;
-  X Y Z startActivity (Landroid/content/Intent;)V
-  \ ]  finish savedInstanceState Landroid/os/Bundle; cmpName Landroid/content/ComponentName; 	deviceMgr 'Landroid/app/admin/DevicePolicyManager; uri Landroid/net/Uri; i Landroid/content/Intent; StackMapTable 
-SourceFile RemoveActivity.java !               /     *· ±    
-                                v*+· ¸ W» Y*·  M*#¶ %À )N-,¶ +™ */¸ 0¶ 69¸ W-,¶ ;§ 0?¸ WAC¸ E:» KYM· O:R¶ SW*¶ W*¶ [±    
-   B           "  *  4  <  A  D  L  V  c  k  q   u !    >    v       v ^ _   ^ ` a  " T b c  V  d e  c  f g  h    ý D  ),  i    j
